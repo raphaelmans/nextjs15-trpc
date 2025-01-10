@@ -4,6 +4,31 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Cloning the Template
+
+1. Clone this repository and give it your app name:
+```bash
+git clone https://github.com/your-username/next-boilerplate.git your-app-name
+cd your-app-name
+```
+
+2. Remove the existing git remote:
+```bash
+git remote remove origin
+```
+
+3. Add your new repository as the origin:
+```bash
+git remote add origin https://github.com/your-username/your-app-name.git
+```
+
+4. Push to your new repository:
+```bash
+git push -u origin main
+```
+
+### Development Server
+
 First, run the development server:
 
 ```bash
