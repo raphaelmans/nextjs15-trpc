@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import AppQueryProvider from './common/providers/app-query-provider'
+import { TRPCProvider } from '@/common/providers/trpc-provider'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AppQueryProvider>{children}</AppQueryProvider>
+        <TRPCProvider>{children}</TRPCProvider>
       </body>
     </html>
   )
