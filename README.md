@@ -120,18 +120,46 @@ hooks
 
 ### lib Folder
 
-Backend-oriented utilities and services:
+Backend-oriented utilities and services organized in a clean architecture pattern:
 
 ```
 lib
-├── api-handlers.ts
-├── constants.ts
-├── domains
-├── dtos
-├── handlers
-├── schemas.ts
-├── services
-└── utils.ts
+├── adapters
+│   └── trpc
+│       └── routers        # tRPC route handlers
+├── core
+│   └── controllers        # Business logic controllers
+├── env                    # Environment configuration
+├── extern
+│   ├── db                # Database configuration and schemas
+│   └── repositories      # External service implementations
+└── trpc                  # tRPC setup and utilities
+```
+
+#### Key Architecture Components:
+
+1. **tRPC Setup**
+   - Uses `createTRPCReact` for type-safe API calls
+   - Server-side rendering support with React Server Components
+   - Automatic request batching via `httpBatchLink`
+   - Superjson for enhanced serialization
+
+2. **Database Integration**
+   - Drizzle ORM with PostgreSQL
+   - Type-safe schema definitions
+   - Environment-based configuration
+
+3. **Clean Architecture**
+   - Controllers handle business logic
+   - Repositories manage external data access
+   - Clear separation of concerns via adapters
+
+### Environment Setup
+
+Create a `.env` file with the following variables:
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
 ```
 
 ### Key Conventions
@@ -139,7 +167,9 @@ lib
 1. Keep folders shallow: Maximum two levels deep unless necessary
 2. Feature isolation: Group related components, hooks, and stores within features
 3. Shared functionality: Place reusable code in common
-4. Modular hooks: Create pure function hooks, combine as needed in features
+4. Type safety: Use tRPC for end-to-end type safety
+5. Server Components: Prefer React Server Components for data fetching
+6. Error Handling: Use Zod for validation and tRPC error handling
 
 ## Learn More
 
