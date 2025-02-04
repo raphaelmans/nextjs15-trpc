@@ -6,6 +6,7 @@ export const env = createEnv({
     DATABASE_URL: z.string(),
     SUPABASE_URL: z.string(),
     SUPABASE_ANON_KEY: z.string(),
+    DEV_PORT: z.string(),
   },
   client: {},
   experimental__runtimeEnv: {},

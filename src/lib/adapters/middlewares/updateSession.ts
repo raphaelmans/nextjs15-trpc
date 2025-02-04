@@ -42,7 +42,7 @@ export async function updateSession(request: NextRequest) {
   }
 
   const requestPathName = request.nextUrl.pathname
-  const isSignInPath = requestPathName.startsWith(appRoutes.signIn.base)
+  const isLoginPath = requestPathName.startsWith(appRoutes.login.base)
   const isIndexPath = requestPathName === appRoutes.index.base
   const matchingRoute = Object.values(appRoutes).find(route =>
     requestPathName === appRoutes.index.base
@@ -53,11 +53,11 @@ export async function updateSession(request: NextRequest) {
   if (matchingRoute) {
     const url = request.nextUrl.clone()
     if ((error || !user) && matchingRoute.options.type === 'protected') {
-      url.pathname = appRoutes.signIn.base
+      url.pathname = appRoutes.login.base
       url.searchParams.set('from', requestPathName)
       return NextResponse.redirect(url)
     }
-    if (!error && matchingRoute.options.type === 'guest' && (isSignInPath || isIndexPath)) {
+    if (!error && matchingRoute.options.type === 'guest' && (isLoginPath || isIndexPath)) {
       url.pathname = appRoutes.home.base
       return NextResponse.redirect(url)
     }

@@ -4,6 +4,7 @@ import superjson from 'superjson'
 import { cookies, headers } from 'next/headers'
 import { MyServiceProvider } from '@/lib/extern'
 import { MyControllerFactory } from '@/lib/core/controllers'
+import { env } from '@/lib/env'
 
 export const createTRPCContext = cache(async () => {
   const header = await headers()
@@ -33,7 +34,7 @@ export const createTRPCContext = cache(async () => {
   }
   return {
     user: await getUser(),
-    origin: header.get('origin') ?? 'http://localhost:4011',
+    origin: header.get('origin') ?? `http://localhost:${env.DEV_PORT}`,
     controllers: {
       healthCheck: controllers.HealthCheck(),
       auth: auth,
