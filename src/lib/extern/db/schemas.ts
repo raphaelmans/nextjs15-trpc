@@ -11,3 +11,5 @@ export const profile = pgTable('profile', {
   updatedAt: timestamp('updated_at').defaultNow(),
   deletedAt: timestamp('deleted_at'),
 })
+
+export type User = typeof authUsers.$inferSelect
