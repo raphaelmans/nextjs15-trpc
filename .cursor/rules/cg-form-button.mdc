@@ -1,0 +1,17 @@
+---
+description: 
+globs: *.tsx
+---
+### Form Button Disabled
+
+```tsx
+  const form = useFormContext<T>()
+
+  const {
+    formState: { isDirty, isValid, isSubmitSuccessful, isSubmitting },
+  } = form
+
+  const isSubmitBtnDisabled = isSubmitting || !isDirty || !isValid || isSubmitSuccessful
+
+  const isSubmitBtnLoading = isSubmitting
+```
