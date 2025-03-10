@@ -1,6 +1,7 @@
 ---
-description: 
-globs: *.tsx
+description: Creating skeleton or loading UI state component
+globs: *.tsx, *.mdc, *.md
+alwaysApply: false
 ---
 Create corresponding loading state out of a reference component using shadcn `Skeleton` found in `@/components/ui/skeleton`
 

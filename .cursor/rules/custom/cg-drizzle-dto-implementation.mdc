@@ -1,0 +1,34 @@
+---
+description: Drizzle DTO implementation 
+globs: src/lib/**/*.ts, *.mdc, *md
+alwaysApply: false
+---
+```ts
+import { createInsertSchema, createSelectSchema, createUpdateSchema } from 'drizzle-zod'
+import { z } from 'zod'
+import {
+  activities,
+  aiCreditTransactions,
+  aiPromptLogs,
+  imaginedImages,
+  invitations,
+  locations,
+  profiles,
+} from '@/lib/extern/db/schemas'
+
+export const ProfileSchema = createSelectSchema(profiles)
+export type Profile = typeof profiles.$inferSelect
+
+export const insertProfileDTOSchema = createInsertSchema(profiles)
+export type InsertProfileDTO = typeof profiles.$inferInsert
+
+export const updateProfileDTOSchema = createUpdateSchema(profiles)
+export type UpdateProfileDTO = z.infer<typeof updateProfileSchema>
+```
+### Common drizzle DTO 
+- entity select: `createSelectSchema(<table_name>)`
+- entity insert: `createInsertSchema(<table_name>)`
+- entity update: `createUpdateSchema(<table_name>)`
+
+### Rules
+- Entity select dto or schema, should NEVER have a `DTO` in its name convention

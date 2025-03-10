@@ -1,6 +1,7 @@
 ---
-description: 
-globs: *.tsx
+description: Form submit handling using react-hook-form and react-query mutation
+globs: src/features/**/*.tsx, *.mdc, *.md
+alwaysApply: false
 ---
 
 

@@ -1,6 +1,7 @@
 ---
-description: 
-globs: *.tsx
+description: Form setup using react-hook-form and zod schema
+globs: src/features/**/*.tsx, *.mdc, *.md
+alwaysApply: false
 ---
 Schema file is located in `@/features/<feature>/schemas.ts`
 
