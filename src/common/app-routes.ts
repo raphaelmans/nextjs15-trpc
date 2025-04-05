@@ -1,16 +1,16 @@
-export const appRootLevelRoutes = ['signUp', 'signIn', 'index', 'home'] as const
+export const appRootLevelRoutes = ['login', 'register', 'index', 'home'] as const
 
 type AppRootLevelRoutes = (typeof appRootLevelRoutes)[number]
 
 const appRoutes = {
-  signUp: {
-    base: '/sign-up',
+  login: {
+    base: '/login',
     options: {
       type: 'guest',
     },
   },
-  signIn: {
-    base: '/sign-in',
+  register: {
+    base: '/register',
     options: {
       type: 'guest',
     },
