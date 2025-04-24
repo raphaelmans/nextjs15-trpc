@@ -6,6 +6,10 @@ export class AuthController {
     this.authRepo = authRepo
   }
 
+  async setSession(token: string) {
+    return await this.authRepo.setSession(token)
+  }
+
   async getCurrentUser(jwt?: string) {
     return this.authRepo.getCurrentUser(jwt)
   }
@@ -28,6 +32,10 @@ export class AuthController {
 
   async verifySignUp(tokenHash: string) {
     await this.authRepo.verifySignUp(tokenHash)
+  }
+
+  async verifyRecovery(tokenHash: string) {
+    await this.authRepo.verifyRecovery(tokenHash)
   }
 
   async signOut() {

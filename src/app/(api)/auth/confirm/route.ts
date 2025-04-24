@@ -32,6 +32,21 @@ export async function GET(request: NextRequest) {
         }
       }
       break
+    case 'recovery':
+      if (token_hash) {
+        console.log('🚀 ~ GET ~ token_hash:', token_hash)
+        try {
+          await trpc.auth.verifyRecovery({ token_hash })
+          const resetPasswordRedirectTo = request.nextUrl.clone()
+          resetPasswordRedirectTo.pathname = appRoutes['reset-password'].base
+          resetPasswordRedirectTo.searchParams.delete('token_hash')
+          resetPasswordRedirectTo.searchParams.delete('type')
+          return NextResponse.redirect(resetPasswordRedirectTo)
+        } catch (error) {
+          console.error(error)
+        }
+      }
+      break
   }
 
   return NextResponse.redirect(redirectTo)

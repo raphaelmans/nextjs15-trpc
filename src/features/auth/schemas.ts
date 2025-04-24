@@ -22,3 +22,15 @@ export const registerFormSchema = z.object({
 })
 
 export type RegisterFormHandler = z.infer<typeof registerFormSchema>
+
+export const forgotPasswordFormSchema = z.object({
+  email: emailSchema,
+})
+export type ForgotPasswordFormHandler = z.infer<typeof forgotPasswordFormSchema>
+
+export const resetPasswordFormSchema = z.object({
+  email: emailSchema,
+  password: passwordSchema,
+})
+
+export type ResetPasswordFormHandler = z.infer<typeof resetPasswordFormSchema>

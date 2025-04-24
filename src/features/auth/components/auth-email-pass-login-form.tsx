@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import React, { PropsWithChildren } from 'react'
 import { useForm, type FieldErrors, useFormContext } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { LoginFormHandler, loginFormSchema } from '../schemas'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
@@ -44,9 +45,12 @@ export default function AuthEmailPassLoginForm() {
       <div className='grid gap-2'>
         <div className='flex items-center'>
           <Label htmlFor='password'>Password</Label>
-          <a href='#' className='ml-auto text-sm underline-offset-2 hover:underline'>
+          <Link
+            href={appRoutes['forgot-password'].base}
+            className='ml-auto text-sm underline-offset-2 hover:underline'
+          >
             Forgot your password?
-          </a>
+          </Link>
         </div>
         <FormField
           name='password'

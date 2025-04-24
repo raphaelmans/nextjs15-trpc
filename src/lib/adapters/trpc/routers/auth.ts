@@ -61,6 +61,24 @@ export const authRouter = router({
     .query(async ({ ctx, input: { token_hash } }) => {
       return await ctx.controllers.auth.verifySignUp(token_hash)
     }),
+  verifyRecovery: publicProcedure
+    .input(
+      z.object({
+        token_hash: z.string(),
+      }),
+    )
+    .mutation(async ({ ctx, input: { token_hash } }) => {
+      return await ctx.controllers.auth.verifyRecovery(token_hash)
+    }),
+  setSession: publicProcedure
+    .input(
+      z.object({
+        token: z.string(),
+      }),
+    )
+    .mutation(async ({ ctx, input: { token } }) => {
+      return await ctx.controllers.auth.setSession(token)
+    }),
   signOut: protectedProcedure.mutation(async ({ ctx }) => {
     return await ctx.controllers.auth.signOut()
   }),
@@ -77,7 +95,7 @@ export const authRouter = router({
       } = opts
       return await ctx.controllers.auth.getCurrentUser(jwt)
     }),
-  sendEmailResetPassword: protectedProcedure
+  sendEmailResetPassword: publicProcedure
     .input(
       z.object({
         email: z.string(),

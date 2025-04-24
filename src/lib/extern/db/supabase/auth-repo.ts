@@ -65,6 +65,13 @@ export class AuthRepo {
     }
   }
 
+  async verifyRecovery(tokenHash: string) {
+    const { error } = await this.client.auth.verifyOtp({ token_hash: tokenHash, type: 'recovery' })
+    if (error) {
+      throw error
+    }
+  }
+
   async signOut() {
     const { error } = await this.client.auth.signOut()
     if (error) {
@@ -79,6 +86,17 @@ export class AuthRepo {
     if (error) {
       throw error
     }
+  }
+
+  async setSession(token: string) {
+    const { error, data } = await this.client.auth.setSession({
+      access_token: token,
+      refresh_token: '',
+    })
+    if (error) {
+      throw error
+    }
+    return data
   }
 
   async resetPasswordConfirmation(email: string, password: string) {

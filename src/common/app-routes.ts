@@ -1,4 +1,11 @@
-export const appRootLevelRoutes = ['login', 'register', 'index', 'home'] as const
+export const appRootLevelRoutes = [
+  'login',
+  'register',
+  'index',
+  'home',
+  'reset-password',
+  'forgot-password',
+] as const
 
 type AppRootLevelRoutes = (typeof appRootLevelRoutes)[number]
 
@@ -25,6 +32,18 @@ const appRoutes = {
     base: '/home',
     options: {
       type: 'protected',
+    },
+  },
+  'reset-password': {
+    base: '/reset-password',
+    options: {
+      type: 'guest',
+    },
+  },
+  'forgot-password': {
+    base: '/forgot-password',
+    options: {
+      type: 'guest',
     },
   },
 } as const satisfies {
