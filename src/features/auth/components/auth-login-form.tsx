@@ -29,10 +29,7 @@ export default function AuthLoginForm({ className, ...props }: React.ComponentPr
               </AuthMagicLinkFormProvider>
               <div className='text-center text-sm'>
                 Don&apos;t have an account?{' '}
-                <Link
-                  href={appRoutes.register.base}
-                  className='font-medium text-primary-foreground hover:underline'
-                >
+                <Link href={appRoutes.register.base} className='font-medium hover:underline'>
                   Sign up
                 </Link>
               </div>

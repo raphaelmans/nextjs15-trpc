@@ -26,9 +26,10 @@ export default function AuthEmailPassLoginForm() {
   return (
     <>
       <div className='flex flex-col items-center text-center'>
-        <h1 className='font-satisfy text-3xl'>Vuenery</h1>
-        <p className='text-balance text-muted-foreground'>
-          Explore, Plan, and Share Your Perfect Getaway.
+        <h1 className='text-3xl font-semibold tracking-tight'>Sign in to Ample</h1>
+        <p className='text-balance text-sm text-muted-foreground'>
+          The pulse of tech, captured by AI interviews. Real-time conversations with founders &
+          innovators—brought to you by AI.
         </p>
       </div>
       <div className='grid gap-2'>
@@ -58,7 +59,7 @@ export default function AuthEmailPassLoginForm() {
         disabled={isSubmitBtnDisabled}
         isLoading={isSubmitBtnLoading}
       >
-        Start Your Journey
+        Sign In
       </Button>
     </>
   )

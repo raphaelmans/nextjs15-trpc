@@ -15,10 +15,7 @@ export default function RegisterPage() {
 
         <div className='text-center text-sm'>
           Already have an account?{' '}
-          <Link
-            href={appRoutes.login.base}
-            className='font-medium text-primary-foreground hover:underline'
-          >
+          <Link href={appRoutes.login.base} className='font-medium hover:underline'>
             Login here
           </Link>
         </div>

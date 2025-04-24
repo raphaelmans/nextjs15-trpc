@@ -23,9 +23,10 @@ export function AuthRegisterForm() {
   return (
     <>
       <div className='flex flex-col items-center text-center'>
-        <h1 className='text-2xl font-bold'>Create an account</h1>
-        <p className='text-balance text-muted-foreground'>
-          Enter your email below to create your account
+        <h1 className='text-2xl font-semibold tracking-tight'>Create your Ample account</h1>
+        <p className='text-balance text-sm text-muted-foreground'>
+          Where AI interviews tomorrow's tech leaders—today. Join to access the latest founder
+          insights as they happen.
         </p>
       </div>
       <div className='grid gap-2'>
@@ -50,7 +51,7 @@ export function AuthRegisterForm() {
         disabled={isSubmitBtnDisabled}
         isLoading={isSubmitBtnLoading}
       >
-        Create account
+        Join Ample
       </Button>
     </>
   )
